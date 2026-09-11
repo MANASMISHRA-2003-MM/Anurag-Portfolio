@@ -10,7 +10,7 @@
 
 :root{--paper:#f2efe8;--ink:#11110f;--muted:#6e6b65;--line:rgba(17,17,15,.14);--white:#f7f5ef}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:"Google Sans",Arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 a{text-decoration:none;color:inherit}
 button{font:inherit}

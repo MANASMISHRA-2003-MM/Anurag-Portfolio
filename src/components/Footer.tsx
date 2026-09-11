@@ -45,7 +45,22 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="footer__bottom"><span>© {new Date().getFullYear()} {portfolio.site.name}</span><span>{portfolio.site.role}</span><a href="#home">Back to top ↑</a></div>
+        <div className="footer__bottom">
+          <span>© {new Date().getFullYear()} {portfolio.site.name}</span>
+          <span>{portfolio.site.role}</span>
+          <span className="footer__credit">
+            Designed & Built by{' '}
+            <a 
+              href="https://mt-technology-fullscreen-video-webs.vercel.app/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="footer__credit-link"
+            >
+              MT Technology <ArrowUpRight style={{ display: 'inline', width: '12px', height: '12px', verticalAlign: 'middle' }} />
+            </a>
+          </span>
+          <a href="#home">Back to top ↑</a>
+        </div>
       </footer>
     </>
   );

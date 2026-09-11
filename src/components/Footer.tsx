@@ -49,14 +49,18 @@ export default function Footer() {
           <span>© {new Date().getFullYear()} {portfolio.site.name}</span>
           <span>{portfolio.site.role}</span>
           <span className="footer__credit">
-            Designed & Built by{' '}
             <a 
               href="https://mt-technology-fullscreen-video-webs.vercel.app/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="footer__credit-link"
+              className="footer__credit-badge"
+              title="Visit Designer & Creator - MT Technology"
             >
-              MT Technology <ArrowUpRight style={{ display: 'inline', width: '12px', height: '12px', verticalAlign: 'middle' }} />
+              <span className="footer__credit-shimmer"></span>
+              <span className="footer__credit-sparkle">✨</span>
+              <span className="footer__credit-label">Designed & Built by</span>
+              <span className="footer__credit-name">MT Technology</span>
+              <ArrowUpRight className="footer__credit-arrow" />
             </a>
           </span>
           <a href="#home">Back to top ↑</a>

@@ -34,7 +34,8 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <motion.header
+    <>
+      <motion.header
       initial={{ y: -34, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.75, ease: EASE_EXPO }}
@@ -96,11 +97,11 @@ export default function Navbar() {
                   transition={{
                     opacity: { duration: 0.4, delay: 0.5 + i * 0.08 },
                     y: {
-                      duration: 3.2,
+                      duration: 2.8,
                       repeat: Infinity,
                       repeatDelay: 0,
                       ease: 'easeInOut',
-                      delay: 0.8 + i * 0.28,
+                      delay: 0.8 + i * 0.24,
                     },
                   }}
                 >
@@ -142,24 +143,25 @@ export default function Navbar() {
           {isOpen ? <XIcon /> : <MenuIcon />}
         </button>
       </nav>
-
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -14 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -14 }}
-            className="s-mobile-menu"
-          >
-            {portfolio.navigation.map(l =>
-              <a key={l.label} href={l.href} onClick={() => setIsOpen(false)}>{l.label}</a>
-            )}
-            <a className="s-mobile-menu__cta" href="#contact" onClick={() => setIsOpen(false)}>
-              Let's Talk <ArrowUpRight size={15} />
-            </a>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </motion.header>
+
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: -14 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -14 }}
+          className="s-mobile-menu"
+        >
+          {portfolio.navigation.map(l =>
+            <a key={l.label} href={l.href} onClick={() => setIsOpen(false)}>{l.label}</a>
+          )}
+          <a className="s-mobile-menu__cta" href="#contact" onClick={() => setIsOpen(false)}>
+            Let's Talk <ArrowUpRight size={15} />
+          </a>
+        </motion.div>
+      )}
+    </AnimatePresence>
+    </>
   );
 }

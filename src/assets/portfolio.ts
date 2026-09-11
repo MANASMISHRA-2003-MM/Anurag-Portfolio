@@ -4,10 +4,23 @@ export type Project = {
   title: string;
   category: string;
   description: string;
-  thumbnail: string;
-  video?: string;
+  driveId?: string;
+  videoUrl?: string;
+  embedUrl?: string;
+  thumbnail?: string;
   href?: string;
 };
+
+export function parseGoogleDriveUrl(input?: string) {
+  if (!input) return { id: '', embedUrl: '', streamUrl: '' };
+  const match = input.match(/[-\w]{25,}/);
+  const id = match ? match[0] : input;
+  return {
+    id,
+    embedUrl: `https://drive.google.com/file/d/${id}/preview`,
+    streamUrl: `https://drive.google.com/uc?export=download&id=${id}`,
+  };
+}
 
 export const portfolio = {
   site: {
@@ -17,6 +30,11 @@ export const portfolio = {
     email: "Anuragshakya922@gmail.com",
     instagram: "https://www.instagram.com/annrag191",
     linkedin: "https://www.linkedin.com/in/anurag-shakya-589616245",
+  },
+  showreel: {
+    title: "A glimpse into the worlds, stories and styles.",
+    driveId: "1a3_l7NHTBQo0mMzhPxjYjwCDVHKYFJqS",
+    driveUrl: "https://drive.google.com/file/d/1a3_l7NHTBQo0mMzhPxjYjwCDVHKYFJqS/view?usp=drivesdk",
   },
   navigation: [
     { label: "Work", href: "#work" },
@@ -60,35 +78,35 @@ export const portfolio = {
   projects: [
     {
       id: "project-01",
-      title: "Selected work",
-      category: "Portfolio",
-      description: "Replace this card with a real project once the final project media is supplied.",
+      title: "Commercial & Brand Edit",
+      category: "Commercials",
+      description: "High-impact commercial edit from video collection.",
       thumbnail: "/logo.svg",
-      href: "#contact",
+      driveId: "1a3_l7NHTBQo0mMzhPxjYjwCDVHKYFJqS",
     },
     {
       id: "project-02",
-      title: "Commercial & Brand",
-      category: "Commercials",
-      description: "A space for a brand film, product campaign or advertising edit.",
+      title: "Creator & YouTube Edit",
+      category: "Long Form",
+      description: "Narrative-driven creator video edit.",
       thumbnail: "/logo.svg",
-      href: "#contact",
+      driveId: "",
     },
     {
       id: "project-03",
-      title: "Creator & YouTube",
-      category: "Long Form",
-      description: "A space for creator-led, YouTube or documentary storytelling.",
+      title: "Sports & High-Energy Edit",
+      category: "Sports",
+      description: "Fast-paced sports and motion edit.",
       thumbnail: "/logo.svg",
-      href: "#contact",
+      driveId: "",
     },
     {
       id: "project-04",
-      title: "Sports & Motion",
-      category: "Sports",
-      description: "A space for high-energy sports, motion and compositing work.",
+      title: "Creative Social Reel",
+      category: "Short Form",
+      description: "Stylized social-first video edit.",
       thumbnail: "/logo.svg",
-      href: "#contact",
+      driveId: "",
     },
   ] as Project[],
   creators: ["Loveena Kamath", "Varun Mayya's Bengaluru team", "Anurag Bansal"],

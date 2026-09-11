@@ -185,6 +185,16 @@ button{font:inherit}
   background:rgba(17,17,15,.92);
   border-radius:2px;
 }
+/* ── Video Modal ────────────────────────────────── */
+.video-modal-backdrop{position:fixed;inset:0;z-index:1000;background:rgba(10,10,9,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);display:flex;align-items:center;justify-content:center;padding:24px}
+.video-modal-container{width:100%;max-width:1100px;background:#161614;border:1px solid rgba(255,255,255,.12);border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.video-modal-header{padding:18px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.08)}
+.video-modal-category{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.5);display:block}
+.video-modal-title{margin:2px 0 0;font-size:18px;color:#fff}
+.video-modal-close{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#fff;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .25s ease}
+.video-modal-close:hover{background:#fff;color:#111}
+.video-modal-player-wrapper{position:relative;width:100%;padding-top:56.25%;background:#000}
+.video-modal-iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 @media (max-width:900px){
  .s-nav__inner{grid-template-columns:1fr auto}.s-nav__links,.s-nav__cta{display:none}.s-nav__mobile{display:block;justify-self:end}.s-mobile-menu{display:flex;position:absolute;top:60px;left:16px;right:16px;background:#161613;color:#fff;border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:24px;flex-direction:column;gap:18px;box-shadow:0 25px 60px rgba(0,0,0,.35)}.s-mobile-menu a{font-size:24px;letter-spacing:-.03em}.s-mobile-menu__cta{font-size:14px!important;width:max-content}
  .hero__content{padding:0 7vw 13vh}.hero h1{font-size:clamp(58px,14vw,100px)}.hero__desc{font-size:15px;max-width:520px}

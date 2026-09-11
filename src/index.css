@@ -1,5 +1,11 @@
 
-@import url('https://fonts.gstatic.com/s/googlesans/v29/4UaGrENHsxJlGDuGo1OIlL3Owp4.woff2');
+@font-face {
+  font-family: 'Google Sans';
+  src: url('https://fonts.gstatic.com/s/googlesans/v29/4UaGrENHsxJlGDuGo1OIlL3Owp4.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 @import 'tailwindcss';
 
 :root{--paper:#f2efe8;--ink:#11110f;--muted:#6e6b65;--line:rgba(17,17,15,.14);--white:#f7f5ef}

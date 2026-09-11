@@ -59,7 +59,7 @@ export default function VideoModal({ isOpen, onClose, videoSource, title, catego
             <iframe
               src={activeUrl}
               className="video-modal-iframe"
-              allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+              allow="autoplay; fullscreen; picture-in-picture; encrypted-media; accelerometer; gyroscope"
               title={title || "Video Player"}
             />
           </div>

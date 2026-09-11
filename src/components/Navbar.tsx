@@ -14,7 +14,7 @@ export default function Navbar() {
       className="s-nav"
     >
       <nav className="s-nav__inner">
-        <a href="#home" className="s-wordmark" aria-label="Anurag Shakya — Home">
+        <a href="#home" className="s-wordmark" aria-label="Anurag — Home">
           <span className="s-wordmark__monogram">
             {/* AS monogram SVG — stylized thin serif letterforms */}
             <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -29,7 +29,7 @@ export default function Navbar() {
             </svg>
           </span>
           <span className="s-wordmark__text">
-            <span className="s-wordmark__name">Anurag Shakya</span>
+            <span className="s-wordmark__name">Anurag</span>
             <span className="s-wordmark__subtitle">Video Editor & Creative</span>
           </span>
         </a>

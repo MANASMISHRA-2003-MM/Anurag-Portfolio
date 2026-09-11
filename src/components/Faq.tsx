@@ -12,7 +12,7 @@ export default function Faq() {
       </div>
       <div className="about-split">
         <div>
-          <p className="big-quote">“Good editing is invisible when it works — you only feel the story.”</p>
+          <p className="big-quote">“Good editing is invisible when it works, you only feel the story.”</p>
           <div className="creator-list">
             {portfolio.creators.map((c,i)=><div key={c}><span>0{i+1}</span>{c}</div>)}
           </div>

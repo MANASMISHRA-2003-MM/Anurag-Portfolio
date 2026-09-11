@@ -14,6 +14,7 @@ export const portfolio = {
     name: "Anurag Shakya",
     role: "Video Editor & Creative Professional",
     phone: "8750886964",
+    email: "Anuragshakya922@gmail.com",
     instagram: "https://www.instagram.com/annrag191",
     linkedin: "https://www.linkedin.com/in/anurag-shakya-589616245",
   },
@@ -93,7 +94,7 @@ export const portfolio = {
   creators: ["Loveena Kamath", "Varun Mayya's Bengaluru team", "Anurag Bansal"],
   experience: [
     { company: "Lit Creative Studio", role: "Editor in Chief", period: "Aug 2025 – Present", location: "Noida" },
-    { company: "Yaas See Media", role: "Video Editor", period: "Sep 2024 – Present", location: "" },
+    { company: "Yaas See Media", role: "Video Editor", period: "Sep 2024 – Aug 2025", location: "" },
     { company: "ScaleAcres", role: "Video Editor", period: "Apr 2024 – Jul 2026", location: "Delhi" },
     { company: "Home Sparkle Sourcing India", role: "Graphic Designer & Video Editor", period: "Apr 2023 – May 2023", location: "" },
     { company: "Sports Media Solution", role: "Video Editor", period: "2022 – 2023", location: "" },

@@ -38,7 +38,10 @@ export default function Footer() {
           </div>
           <div className="footer__contact">
             <p>Let's turn your footage into something people want to watch.</p>
-            <a className="footer__big-link" href={`tel:${portfolio.site.phone}`}>{portfolio.site.phone} <ArrowUpRight/></a>
+            <div className="footer__links-group">
+              <a className="footer__big-link" href={`tel:${portfolio.site.phone}`}>{portfolio.site.phone} <ArrowUpRight/></a>
+              <a className="footer__big-link footer__big-link--email" href={`mailto:${portfolio.site.email}`}>{portfolio.site.email} <ArrowUpRight/></a>
+            </div>
             <div className="footer__socials">
               <a href={portfolio.site.instagram} target="_blank" rel="noreferrer">Instagram</a>
               <a href={portfolio.site.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>

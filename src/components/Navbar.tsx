@@ -96,11 +96,11 @@ export default function Navbar() {
                   transition={{
                     opacity: { duration: 0.4, delay: 0.5 + i * 0.08 },
                     y: {
-                      duration: 1.6,
+                      duration: 3.2,
                       repeat: Infinity,
                       repeatDelay: 0,
                       ease: 'easeInOut',
-                      delay: 0.8 + i * 0.14,
+                      delay: 0.8 + i * 0.28,
                     },
                   }}
                 >

@@ -11,9 +11,9 @@ export default function Faq() {
         <p>5+ years across sports, D2C brands, YouTube, social media and advertising, plus production, shooting, scripting and AI-assisted creative workflows.</p>
       </div>
 
-      <div className="about-layout">
+      {/* ── ROW 1: Photo  |  Quote + Creators (2-col always) ── */}
+      <div className="about-top-row">
 
-        {/* ── LEFT: sticky photo column ─────────────────── */}
         <motion.div
           className="about-photo-col"
           initial={{ opacity: 0, x: -32 }}
@@ -24,18 +24,17 @@ export default function Faq() {
           <div className="about-photo-frame">
             <img
               src="/About_Photo.webp"
-              alt="Anurag Shakya – Video Editor"
+              alt="Anurag – Video Editor"
               className="about-photo-img"
               loading="lazy"
             />
             <div className="about-photo-tag">
               <span className="about-photo-tag__dot" />
-              Anurag Shakya
+              Anurag
             </div>
           </div>
         </motion.div>
 
-        {/* ── MIDDLE: quote + creator list ─────────────── */}
         <motion.div
           className="about-mid-col"
           initial={{ opacity: 0, y: 24 }}
@@ -43,7 +42,7 @@ export default function Faq() {
           viewport={{ once: true }}
           transition={{ duration: 0.65, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="big-quote">“Good editing is invisible when it works, you only feel the story.”</p>
+          <p className="big-quote">"Good editing is invisible when it works, you only feel the story."</p>
           <div className="creator-list">
             {portfolio.creators.map((c, i) => (
               <div key={c}><span>0{i + 1}</span>{c}</div>
@@ -51,24 +50,25 @@ export default function Faq() {
           </div>
         </motion.div>
 
-        {/* ── RIGHT: FAQ accordion ─────────────────────── */}
-        <div className="faq-list" id="faq">
-          {portfolio.faq.map((f, i) => (
-            <motion.details
-              key={i}
-              className="faq-item"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-            >
-              <summary><span>{f.q}</span><span>+</span></summary>
-              <p>{f.a}</p>
-            </motion.details>
-          ))}
-        </div>
-
       </div>
+
+      {/* ── ROW 2: FAQ accordion — full width below ─────────── */}
+      <div className="about-faq-row" id="faq">
+        {portfolio.faq.map((f, i) => (
+          <motion.details
+            key={i}
+            className="faq-item"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.05 }}
+          >
+            <summary><span>{f.q}</span><span>+</span></summary>
+            <p>{f.a}</p>
+          </motion.details>
+        ))}
+      </div>
+
     </section>
   );
 }

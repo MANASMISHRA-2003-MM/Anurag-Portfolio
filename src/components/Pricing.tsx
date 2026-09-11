@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { portfolio, type Project } from '../assets/portfolio';
+import { portfolio, parseGoogleDriveUrl, type Project } from '../assets/portfolio';
 import VideoModal from './VideoModal';
 
 export default function Pricing() {
@@ -31,6 +31,19 @@ export default function Pricing() {
                 <div className="work-card__placeholder">
                   <span>{String(i + 1).padStart(2, '0')}</span>
                 </div>
+                {p.driveId && (
+                  <>
+                    <iframe
+                      src={parseGoogleDriveUrl(p.driveId).embedUrl}
+                      className="work-card__iframe"
+                      allow="autoplay; encrypted-media; picture-in-picture"
+                      title={p.title}
+                    />
+                    <div className="work-card__play-badge">
+                      <span className="work-card__play-icon">▶</span> PLAY VIDEO
+                    </div>
+                  </>
+                )}
                 <div className="work-card__veil" />
               </div>
               <div className="work-card__meta">

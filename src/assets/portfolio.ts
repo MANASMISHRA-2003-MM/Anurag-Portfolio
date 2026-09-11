@@ -80,9 +80,9 @@ export const portfolio = {
       id: "project-01",
       title: "Commercial & Brand Edit",
       category: "Commercials",
-      description: "High-impact commercial edit from video collection.",
+      description: "High-impact commercial edit.",
       thumbnail: "/logo.svg",
-      driveId: "1a3_l7NHTBQo0mMzhPxjYjwCDVHKYFJqS",
+      driveId: "1Wz-UPLf_MOZGMzmDwPsBtVHoe7stwM81",
     },
     {
       id: "project-02",
@@ -90,7 +90,7 @@ export const portfolio = {
       category: "Long Form",
       description: "Narrative-driven creator video edit.",
       thumbnail: "/logo.svg",
-      driveId: "",
+      driveId: "1MSL4Lz6gOpUT-S6bKS4VFgC93zuclx0_",
     },
     {
       id: "project-03",
@@ -98,7 +98,7 @@ export const portfolio = {
       category: "Sports",
       description: "Fast-paced sports and motion edit.",
       thumbnail: "/logo.svg",
-      driveId: "",
+      driveId: "14cCR9kLXZo8MTPsLGulE4_Hpy9PELieW",
     },
     {
       id: "project-04",
@@ -106,7 +106,7 @@ export const portfolio = {
       category: "Short Form",
       description: "Stylized social-first video edit.",
       thumbnail: "/logo.svg",
-      driveId: "",
+      driveId: "1HjhwqdkHd7zgm5IdYO2j4Cv5cu65jgse",
     },
   ] as Project[],
   creators: ["Loveena Kamath", "Varun Mayya's Bengaluru team", "Anurag Bansal"],

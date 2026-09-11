@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { X, ExternalLink } from 'lucide-react';
 import { parseGoogleDriveUrl } from '../assets/portfolio';
 
 interface VideoModalProps {
@@ -13,8 +13,9 @@ interface VideoModalProps {
 export default function VideoModal({ isOpen, onClose, videoSource, title, category }: VideoModalProps) {
   if (!isOpen || !videoSource) return null;
 
-  const { embedUrl } = parseGoogleDriveUrl(videoSource);
+  const { id, embedUrl } = parseGoogleDriveUrl(videoSource);
   const activeUrl = embedUrl || videoSource;
+  const driveViewUrl = `https://drive.google.com/file/d/${id}/view?usp=sharing`;
 
   return (
     <AnimatePresence>
@@ -38,17 +39,27 @@ export default function VideoModal({ isOpen, onClose, videoSource, title, catego
               {category && <span className="video-modal-category">{category}</span>}
               {title && <h3 className="video-modal-title">{title}</h3>}
             </div>
-            <button className="video-modal-close" onClick={onClose} aria-label="Close modal">
-              <X size={20} />
-            </button>
+            <div className="video-modal-actions">
+              <a
+                href={driveViewUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="video-modal-drive-btn"
+                title="Open in Google Drive"
+              >
+                <span>Drive</span> <ExternalLink size={13} />
+              </a>
+              <button className="video-modal-close" onClick={onClose} aria-label="Close modal">
+                <X size={18} />
+              </button>
+            </div>
           </div>
 
           <div className="video-modal-player-wrapper">
             <iframe
               src={activeUrl}
               className="video-modal-iframe"
-              allow="autoplay; encrypted-media; fullscreen"
-              allowFullScreen
+              allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
               title={title || "Video Player"}
             />
           </div>

@@ -48,13 +48,13 @@ export const portfolio = {
     eyebrow: "Anurag Shakya",
     title: "Stories come alive in the edit.",
     description:
-      "Video Editor & Creative Professional with 5+ years shaping footage across sports, brands, YouTube, advertising and social media.",
+      "Video Editor & Creative Professional with 6+ years shaping footage across sports, brands, YouTube, advertising and social media.",
     primaryCta: { label: "View My Work", href: "#work" },
     secondaryCta: { label: "Let's Talk", href: "#contact" },
     videoSrc: "/hero-plants-desktop.webm",
   },
   stats: [
-    { value: "5+", label: "Years of experience" },
+    { value: "6+", label: "Years of experience" },
     { value: "SPORTS", label: "Editing specialty" },
     { value: "BRANDS", label: "Creators & teams" },
     { value: "VIDEO", label: "Editing · Motion · Sound" },
@@ -137,6 +137,6 @@ export const portfolio = {
     { q: "Do you also work on sound design?", a: "Yes. Music, ambience, sound effects and audio finishing can be included in the edit." },
     { q: "Can you help with shooting or production?", a: "Yes. I also work across video production, shooting and production support." },
     { q: "Do you use AI in your workflow?", a: "Yes. I use AI-assisted workflows where they improve ideation, experimentation or post-production." },
-    { q: "How can I contact you?", a: "Call 8750886964,mail: Anuragshakya922@gmail.com or reach out on Instagram or LinkedIn." },
+    { q: "How can I contact you?", a: "Call 8750886964, mail: Anuragshakya922@gmail.com or reach out on Instagram or LinkedIn." },
   ],
 };

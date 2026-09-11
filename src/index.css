@@ -253,7 +253,7 @@ button{font:inherit}
  /* Navbar wordmark on tablet */
  .s-nav__inner{grid-template-columns:1fr auto}.s-nav__links,.s-nav__cta{display:none}.s-nav__mobile{display:block;justify-self:end}
  .s-mobile-menu{display:flex;position:fixed;top:70px;left:16px;right:16px;background:#090908f2;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:28px 24px;flex-direction:column;gap:18px;box-shadow:0 30px 90px rgba(0,0,0,.9);z-index:9999}.s-mobile-menu a{font-size:24px;letter-spacing:-.03em;color:#fff}.s-mobile-menu__cta{font-size:14px!important;width:max-content}
- .s-wordmark__subtitle{display:none}
+ .s-wordmark__subtitle{display:block;font-size:7.5px;letter-spacing:.12em;opacity:.7}
  /* Hero */
  .hero__content{padding:0 7vw 13vh}.hero h1{font-size:clamp(58px,14vw,100px)}.hero__desc{font-size:15px;max-width:520px}
  /* Stats */
@@ -272,8 +272,8 @@ button{font:inherit}
 }
 
 @media (max-width:600px){
- /* Navbar wordmark on mobile — keep monogram + name only */
- .s-wordmark__subtitle{display:none}
+ /* Navbar wordmark on mobile — keep monogram, name and subtitle visible */
+ .s-wordmark__subtitle{display:block;font-size:7px;letter-spacing:.1em;margin-top:2px;opacity:.75}
  .s-wordmark__monogram{width:28px;height:28px}
  .s-wordmark__name{font-size:11px;letter-spacing:.14em}
  /* Hero */

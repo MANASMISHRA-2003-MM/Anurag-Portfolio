@@ -8,7 +8,7 @@ export default function Faq() {
       <div className="section__head">
         <p className="kicker">About the editor</p>
         <h2>Experience that works<br/><em>behind the story.</em></h2>
-        <p>6+ years across sports, D2C brands, YouTube, social media and advertising — plus production, shooting, scripting and AI-assisted creative workflows.</p>
+        <p>5+ years across sports, D2C brands, YouTube, social media and advertising, plus production, shooting, scripting and AI-assisted creative workflows.</p>
       </div>
       <div className="about-split">
         <div>

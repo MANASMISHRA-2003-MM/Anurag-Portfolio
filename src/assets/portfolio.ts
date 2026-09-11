@@ -30,7 +30,7 @@ export const portfolio = {
     eyebrow: "Anurag Shakya",
     title: "Stories come alive in the edit.",
     description:
-      "Video Editor & Creative Professional with 6+ years shaping footage across sports, brands, YouTube, advertising and social media.",
+      "Video Editor & Creative Professional with 5+ years shaping footage across sports, brands, YouTube, advertising and social media.",
     primaryCta: { label: "View My Work", href: "#work" },
     secondaryCta: { label: "Let's Talk", href: "#contact" },
     videoSrc: "/hero-plants-desktop.webm",

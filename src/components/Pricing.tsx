@@ -1,11 +1,16 @@
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { portfolio, type Project } from '../assets/portfolio';
 import VideoModal from './VideoModal';
+import OptimizedVideoCard from './OptimizedVideoCard';
 
 export default function Pricing() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  // Stick strictly to 4 featured videos on homepage work-grid
+  const homepageProjects = portfolio.projects.slice(0, 4);
 
   return (
     <>
@@ -13,60 +18,35 @@ export default function Pricing() {
         <div className="section__head section__head--light">
           <p className="kicker">Selected work</p>
           <h2>Built to be watched.<br/><em>Made to be remembered.</em></h2>
-          <p>A portfolio shelf for commercial, creator, sports and story-led work. Drop your finished project media into the data file and the visual system stays the same.</p>
+          <p>A curated reel of commercial, creator, sports and story-led work. Click any project to watch in high-definition or explore the complete video archives.</p>
         </div>
-        <div className="work-grid">
-          {portfolio.projects.map((p, i) => {
-            const hasVideo = Boolean(p.driveId || p.videoUrl || p.embedUrl);
 
-            return (
-              <motion.div
-                key={p.id}
-                onClick={() => hasVideo && setSelectedProject(p)}
-                className={`work-card work-card--${i % 2 ? 'tall' : 'wide'}`}
-                style={{ cursor: hasVideo ? 'pointer' : 'default' }}
-                initial={{ opacity: 0, scale: .98 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, amount: .15 }}
-                transition={{ duration: .8 }}
-              >
-                <div className="work-card__media">
-                  <div className="work-card__placeholder">
-                    <span>{String(i + 1).padStart(2, '0')}</span>
-                  </div>
-                  {hasVideo && (
-                    <button
-                      type="button"
-                      className="work-card__play-badge"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setSelectedProject(p);
-                      }}
-                      aria-label={`Play ${p.title}`}
-                    >
-                      <span className="work-card__play-icon">▶</span> PLAY VIDEO
-                    </button>
-                  )}
-                  <div className="work-card__veil" />
-                </div>
-                <div className="work-card__meta">
-                  <div><span>{p.category}</span><h3>{p.title}</h3></div><ArrowGlyph />
-                </div>
-              </motion.div>
-            );
-          })}
+        <div className="work-grid">
+          {homepageProjects.map((p, i) => (
+            <OptimizedVideoCard
+              key={p.id}
+              project={p}
+              index={i}
+              onSelect={(proj) => setSelectedProject(proj)}
+            />
+          ))}
+        </div>
+
+        {/* See All Works Button Route */}
+        <div className="work-grid__cta-wrap">
+          <Link to="/work" className="button button--light work-grid__see-all-btn">
+            See All Works <ArrowRight size={16} />
+          </Link>
         </div>
       </section>
 
       <VideoModal
         isOpen={!!selectedProject}
         onClose={() => setSelectedProject(null)}
-        videoSource={selectedProject?.driveId || selectedProject?.videoUrl || selectedProject?.embedUrl}
+        videoSource={selectedProject?.driveId}
         title={selectedProject?.title}
         category={selectedProject?.category}
       />
     </>
   );
 }
-
-function ArrowGlyph() { return <span className="arrow-glyph">↗</span>; }

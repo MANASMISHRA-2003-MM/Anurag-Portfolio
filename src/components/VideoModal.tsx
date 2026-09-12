@@ -1,5 +1,6 @@
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ExternalLink } from 'lucide-react';
+import { X, ExternalLink, AlertCircle } from 'lucide-react';
 import { parseGoogleDriveUrl } from '../assets/portfolio';
 
 interface VideoModalProps {
@@ -11,10 +12,18 @@ interface VideoModalProps {
 }
 
 export default function VideoModal({ isOpen, onClose, videoSource, title, category }: VideoModalProps) {
+  const [playerType, setPlayerType] = useState<'video' | 'iframe'>('video');
+  const [videoError, setVideoError] = useState(false);
+
+  useEffect(() => {
+    // Reset player state when videoSource changes
+    setPlayerType('video');
+    setVideoError(false);
+  }, [videoSource]);
+
   if (!isOpen || !videoSource) return null;
 
-  const { id, embedUrl } = parseGoogleDriveUrl(videoSource);
-  const activeUrl = embedUrl || videoSource;
+  const { id, embedUrl, streamUrl } = parseGoogleDriveUrl(videoSource);
   const driveViewUrl = `https://drive.google.com/file/d/${id}/view?usp=sharing`;
 
   return (
@@ -45,9 +54,9 @@ export default function VideoModal({ isOpen, onClose, videoSource, title, catego
                 target="_blank"
                 rel="noopener noreferrer"
                 className="video-modal-drive-btn"
-                title="Open in Google Drive"
+                title="Open directly in Google Drive"
               >
-                <span>Drive</span> <ExternalLink size={13} />
+                <span>Open HD Drive</span> <ExternalLink size={13} />
               </a>
               <button className="video-modal-close" onClick={onClose} aria-label="Close modal">
                 <X size={18} />
@@ -56,12 +65,35 @@ export default function VideoModal({ isOpen, onClose, videoSource, title, catego
           </div>
 
           <div className="video-modal-player-wrapper">
-            <iframe
-              src={activeUrl}
-              className="video-modal-iframe"
-              allow="autoplay; fullscreen; picture-in-picture; encrypted-media; accelerometer; gyroscope"
-              title={title || "Video Player"}
-            />
+            {playerType === 'video' && !videoError ? (
+              <video
+                src={streamUrl}
+                controls
+                autoPlay
+                playsInline
+                preload="auto"
+                className="video-modal-native-player"
+                onError={() => {
+                  // Fall back to iframe player if direct stream is blocked by CORS/Drive policy
+                  setVideoError(true);
+                  setPlayerType('iframe');
+                }}
+              />
+            ) : (
+              <iframe
+                src={embedUrl}
+                className="video-modal-iframe"
+                allow="autoplay; fullscreen; picture-in-picture; encrypted-media; accelerometer; gyroscope"
+                title={title || "Video Player"}
+              />
+            )}
+
+            {videoError && (
+              <div className="video-modal-fallback-banner">
+                <AlertCircle size={14} />
+                <span>Mobile Drive Stream mode — if video doesn't play automatically, <a href={driveViewUrl} target="_blank" rel="noopener noreferrer">Watch on Google Drive App <ExternalLink size={12} /></a></span>
+              </div>
+            )}
           </div>
         </motion.div>
       </motion.div>

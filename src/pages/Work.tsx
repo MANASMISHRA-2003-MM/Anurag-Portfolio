@@ -2,13 +2,11 @@ import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Film } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { allProjects, WORK_CATEGORIES, type Project } from '../assets/portfolio';
+import { allProjects, WORK_CATEGORIES, parseGoogleDriveUrl, type Project } from '../assets/portfolio';
 import OptimizedVideoCard from '../components/OptimizedVideoCard';
-import VideoModal from '../components/VideoModal';
 
 export default function Work() {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
-  const [activeModalProject, setActiveModalProject] = useState<Project | null>(null);
 
   // Scroll to top on page load
   useEffect(() => {
@@ -20,6 +18,12 @@ export default function Work() {
       return selectedCategory === 'All' || p.category === selectedCategory;
     });
   }, [selectedCategory]);
+
+  const handleProjectSelect = (project: Project) => {
+    const { id } = parseGoogleDriveUrl(project.driveId);
+    const driveUrl = `https://drive.google.com/file/d/${id}/view?usp=sharing`;
+    window.open(driveUrl, '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <div className="work-page">
@@ -114,7 +118,7 @@ export default function Work() {
                     project={project}
                     index={idx}
                     variant="feed"
-                    onSelect={(p) => setActiveModalProject(p)}
+                    onSelect={handleProjectSelect}
                   />
                 ))}
               </AnimatePresence>
@@ -122,16 +126,6 @@ export default function Work() {
           )}
         </div>
       </section>
-
-      {/* Video Modal Player */}
-      <VideoModal
-        isOpen={!!activeModalProject}
-        onClose={() => setActiveModalProject(null)}
-        videoSource={activeModalProject?.driveId}
-        title={activeModalProject?.title}
-        category={activeModalProject?.category}
-        aspectRatio={activeModalProject?.aspectRatio}
-      />
     </div>
   );
 }

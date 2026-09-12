@@ -12,7 +12,7 @@ interface VideoModalProps {
   aspectRatio?: 'vertical' | 'horizontal';
 }
 
-export default function VideoModal({ isOpen, onClose, videoSource, title, category, aspectRatio }: VideoModalProps) {
+export default function VideoModal({ isOpen, onClose, videoSource, title, category }: VideoModalProps) {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -29,8 +29,6 @@ export default function VideoModal({ isOpen, onClose, videoSource, title, catego
   const driveViewUrl = `https://drive.google.com/file/d/${id}/view?usp=sharing`;
   const driveEmbedUrl = `${embedUrl}?autoplay=1&rm=minimal`;
 
-  const isVertical = aspectRatio === 'vertical';
-
   return (
     <AnimatePresence>
       <motion.div
@@ -45,7 +43,7 @@ export default function VideoModal({ isOpen, onClose, videoSource, title, catego
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.94, opacity: 0 }}
           transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-          className={`video-modal-container video-modal-container--clean ${isVertical ? 'video-modal-container--vertical' : 'video-modal-container--horizontal'}`}
+          className="video-modal-container video-modal-container--clean video-modal-container--insta-style"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header Bar */}
@@ -70,7 +68,7 @@ export default function VideoModal({ isOpen, onClose, videoSource, title, catego
             </div>
           </div>
 
-          {/* Clean Clipped Player Canvas — Crops native Drive buttons and popout controls */}
+          {/* Clean Clipped Player Canvas — Standard Insta 9:11 style player */}
           <div className="video-modal-player-wrapper video-modal-player-wrapper--clean">
             <div className="video-modal-iframe-clean-crop">
               <iframe

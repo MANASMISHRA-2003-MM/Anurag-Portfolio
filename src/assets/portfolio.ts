@@ -38,13 +38,12 @@ export const WORK_CATEGORIES = [
 export const allProjects: Project[] = [
   // --- Homepage Featured 4 ---
   {
-    id: "proj-nba-sizzle-2",
-    title: "NBA Sizzle Reel — Highlight Edit",
+    id: "proj-nba-reel-2",
+    title: "NBA Action Reels",
     category: "Sports & NBA",
-    subCategory: "Sizzle",
-    description: "High-octane NBA hype edit showcasing rhythmic pacing, impact sound design, and player movements.",
-    driveId: "1a3_l7NHTBQo0mMzhPxjYjwCDVHKYFJqS",
-    aspectRatio: "horizontal",
+    description: "Vertical high-energy sports reel cut for mobile social engagement.",
+    driveId: "14cCR9kLXZo8MTPsLGulE4_Hpy9PELieW",
+    aspectRatio: "vertical",
     featured: true,
   },
   {
@@ -57,12 +56,13 @@ export const allProjects: Project[] = [
     featured: true,
   },
   {
-    id: "proj-nba-reel-2",
-    title: "NBA Action Reels",
+    id: "proj-nba-sizzle-2",
+    title: "NBA Sizzle Reel — Highlight Edit",
     category: "Sports & NBA",
-    description: "Vertical high-energy sports reel cut for mobile social engagement.",
-    driveId: "14cCR9kLXZo8MTPsLGulE4_Hpy9PELieW",
-    aspectRatio: "vertical",
+    subCategory: "Sizzle",
+    description: "High-octane NBA hype edit showcasing rhythmic pacing, impact sound design, and player movements.",
+    driveId: "1a3_l7NHTBQo0mMzhPxjYjwCDVHKYFJqS",
+    aspectRatio: "horizontal",
     featured: true,
   },
   {

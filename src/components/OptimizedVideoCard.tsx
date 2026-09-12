@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Play, ExternalLink } from 'lucide-react';
 import { parseGoogleDriveUrl, type Project } from '../assets/portfolio';
@@ -10,7 +11,24 @@ interface OptimizedVideoCardProps {
 }
 
 export default function OptimizedVideoCard({ project, index, onSelect, variant = 'grid' }: OptimizedVideoCardProps) {
-  const { thumbnailUrl } = parseGoogleDriveUrl(project.driveId);
+  const { id } = parseGoogleDriveUrl(project.driveId);
+  const primaryThumb = `https://lh3.googleusercontent.com/d/${id}=s1000`;
+  const secondaryThumb = `https://drive.google.com/thumbnail?id=${id}&sz=w1000`;
+  const tertiaryThumb = `https://lh3.googleusercontent.com/d/${id}=s800`;
+
+  const [imgSrc, setImgSrc] = useState(primaryThumb);
+  const [retryCount, setRetryCount] = useState(0);
+
+  const handleImgError = () => {
+    if (retryCount === 0) {
+      setImgSrc(secondaryThumb);
+      setRetryCount(1);
+    } else if (retryCount === 1) {
+      setImgSrc(tertiaryThumb);
+      setRetryCount(2);
+    }
+  };
+
   const isVertical = project.aspectRatio === 'vertical';
 
   return (
@@ -25,9 +43,11 @@ export default function OptimizedVideoCard({ project, index, onSelect, variant =
       <div className="work-card__media">
         {/* High-Definition Poster Thumbnail */}
         <img
-          src={thumbnailUrl}
+          src={imgSrc}
           alt={project.title}
           loading="lazy"
+          referrerPolicy="no-referrer"
+          onError={handleImgError}
           className="work-card__poster work-card__poster--active"
         />
 

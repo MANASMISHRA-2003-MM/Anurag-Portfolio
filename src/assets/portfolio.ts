@@ -10,13 +10,14 @@ export type Project = {
 };
 
 export function parseGoogleDriveUrl(input?: string) {
-  if (!input) return { id: '', embedUrl: '', streamUrl: '', thumbnailUrl: '' };
+  if (!input) return { id: '', embedUrl: '', streamUrl: '', cdnStreamUrl: '', thumbnailUrl: '' };
   const match = input.match(/[-\w]{25,}/);
   const id = match ? match[0] : input;
   return {
     id,
     embedUrl: `https://drive.google.com/file/d/${id}/preview`,
     streamUrl: `https://drive.google.com/uc?export=download&id=${id}`,
+    cdnStreamUrl: `https://lh3.googleusercontent.com/d/${id}`,
     thumbnailUrl: `https://drive.google.com/thumbnail?id=${id}&sz=w1000`,
   };
 }

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { portfolio, type Project } from '../assets/portfolio';
@@ -46,6 +45,7 @@ export default function Pricing() {
         videoSource={selectedProject?.driveId}
         title={selectedProject?.title}
         category={selectedProject?.category}
+        aspectRatio={selectedProject?.aspectRatio}
       />
     </>
   );

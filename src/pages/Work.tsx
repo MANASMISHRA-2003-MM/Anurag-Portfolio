@@ -130,6 +130,7 @@ export default function Work() {
         videoSource={activeModalProject?.driveId}
         title={activeModalProject?.title}
         category={activeModalProject?.category}
+        aspectRatio={activeModalProject?.aspectRatio}
       />
     </div>
   );

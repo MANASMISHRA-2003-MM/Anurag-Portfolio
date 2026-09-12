@@ -1,0 +1,14 @@
+error: pathspec 'Remove' did not match any file(s) known to git
+error: pathspec 'native' did not match any file(s) known to git
+error: pathspec 'video' did not match any file(s) known to git
+error: pathspec 'controls' did not match any file(s) known to git
+error: pathspec 'timeline' did not match any file(s) known to git
+error: pathspec '10s' did not match any file(s) known to git
+error: pathspec 'skip' did not match any file(s) known to git
+error: pathspec 'buttons' did not match any file(s) known to git
+error: pathspec 'settings' did not match any file(s) known to git
+error: pathspec 'gear' did not match any file(s) known to git
+error: pathspec 'and' did not match any file(s) known to git
+error: pathspec 'banners' did not match any file(s) known to git
+error: pathspec 'from' did not match any file(s) known to git
+error: pathspec 'VideoModal\ ' did not match any file(s) known to git

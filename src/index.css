@@ -312,10 +312,23 @@ button{font:inherit}
   box-shadow: 0 24px 60px rgba(0,0,0,0.8);
 }
 
+.video-modal-container--vertical {
+  max-width: 440px;
+  width: 92%;
+  height: clamp(520px, 82vh, 780px);
+}
+
+.video-modal-container--horizontal {
+  max-width: 900px;
+  width: 94%;
+  height: clamp(380px, 72vh, 760px);
+}
+
 .video-modal-player-wrapper--clean {
   position: relative;
   width: 100%;
-  height: clamp(380px, 72vh, 760px);
+  height: 100%;
+  flex: 1;
   background: #000;
   overflow: hidden;
   display: flex;
@@ -335,26 +348,38 @@ button{font:inherit}
 
 .video-modal-iframe-cropped {
   position: absolute;
-  width: 114%;
-  height: 122%;
-  top: -11%;
-  left: -7%;
+  width: 126%;
+  height: 134%;
+  top: -17%;
+  left: -13%;
   border: none;
   background: #000;
 }
 
 @media (max-width: 768px) {
-  .video-modal-iframe-clean-crop {
-    pointer-events: none; /* Disables touch overlay on mobile so Drive center controls never pop up */
+  .video-modal-container--vertical {
+    max-width: 100%;
+    width: 94%;
+    height: 82vh;
   }
+  .video-modal-container--horizontal {
+    max-width: 100%;
+    width: 94%;
+    height: 60vh;
+  }
+
+  .video-modal-iframe-clean-crop {
+    pointer-events: auto;
+  }
+
   .video-modal-iframe-cropped {
-    width: 124%;
-    height: 134%;
-    top: -17%;
-    left: -12%;
-    pointer-events: none;
+    width: 134%;
+    height: 144%;
+    top: -22%;
+    left: -17%;
   }
 }
+
 
 
 

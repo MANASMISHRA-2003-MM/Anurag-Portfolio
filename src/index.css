@@ -304,40 +304,90 @@ button{font:inherit}
  .work-card__play-badge{top:16px;right:16px;padding:6px 12px;font-size:9px}
 }
 
-.video-modal-native-player {
+.video-modal-container--clean {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #11110f;
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.8);
+}
+
+.video-modal-player-wrapper--clean {
+  position: relative;
+  width: 100%;
+  height: clamp(380px, 72vh, 760px);
+  background: #000;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 0 16px 16px;
+  cursor: pointer;
+}
+
+.video-modal-native-player--clean {
   width: 100%;
   height: 100%;
   object-fit: contain;
   background: #000;
   outline: none;
-  border-radius: 0 0 14px 14px;
+  border: none;
 }
 
-.video-modal-fallback-banner {
+.video-modal-sound-toggle {
   position: absolute;
-  bottom: 12px;
-  left: 16px;
-  right: 16px;
-  background: rgba(17,17,15,0.92);
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(17,17,15,0.78);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  padding: 8px 14px;
-  border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.18);
-  color: #f7f5ef;
-  font-size: 11px;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
   display: flex;
   align-items: center;
-  gap: 8px;
-  z-index: 10;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
-.video-modal-fallback-banner a {
-  color: #ffd700;
-  text-decoration: underline;
-  display: inline-flex;
+.video-modal-sound-toggle:hover {
+  background: #fff;
+  color: #111;
+  border-color: #fff;
+  transform: scale(1.08);
+}
+
+.video-modal-tap-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -34px;
+  margin-left: -34px;
+  z-index: 12;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: rgba(17,17,15,0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.2);
+  display: flex;
   align-items: center;
-  gap: 4px;
+  justify-content: center;
+  pointer-events: none;
 }
+
+.video-modal-iframe-clip {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 0 0 16px 16px;
+}
+
 
 /* ── Optimized Video Card & Performance Styles ── */
 .work-card-optimized {

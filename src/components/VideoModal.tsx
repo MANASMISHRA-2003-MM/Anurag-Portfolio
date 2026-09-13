@@ -25,9 +25,23 @@ export default function VideoModal({ isOpen, onClose, videoSource, title, catego
 
   if (!isOpen || !videoSource) return null;
 
-  const { id, embedUrl } = parseGoogleDriveUrl(videoSource);
-  const driveViewUrl = `https://drive.google.com/file/d/${id}/view?usp=sharing`;
-  const driveEmbedUrl = `${embedUrl}?autoplay=1&rm=minimal`;
+  const isExternalUrl = videoSource.startsWith('http');
+  let driveViewUrl = '';
+  let driveEmbedUrl = '';
+
+  if (isExternalUrl) {
+    if (videoSource.includes('youtube.com/embed/')) {
+      driveViewUrl = videoSource.replace('embed/', 'watch?v=').replace('?autoplay=1', '');
+    } else {
+      driveViewUrl = videoSource.replace('/embed', '');
+    }
+    driveEmbedUrl = videoSource;
+  } else {
+    const { id, embedUrl } = parseGoogleDriveUrl(videoSource);
+    driveViewUrl = `https://drive.google.com/file/d/${id}/view?usp=sharing`;
+    driveEmbedUrl = `${embedUrl}?autoplay=1&rm=minimal`;
+  }
+
 
   return (
     <AnimatePresence>
@@ -58,9 +72,9 @@ export default function VideoModal({ isOpen, onClose, videoSource, title, catego
                 target="_blank"
                 rel="noopener noreferrer"
                 className="video-modal-drive-btn"
-                title="Open in Drive App"
+                title="Open Original"
               >
-                <span>OPEN HD DRIVE</span> <ExternalLink size={13} />
+                <span>VIEW ORIGINAL</span> <ExternalLink size={13} />
               </a>
               <button className="video-modal-close" onClick={onClose} aria-label="Close modal">
                 <X size={18} />

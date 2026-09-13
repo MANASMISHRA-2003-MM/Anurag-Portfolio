@@ -11,15 +11,23 @@ interface OptimizedVideoCardProps {
 }
 
 export default function OptimizedVideoCard({ project, index, onSelect, variant = 'grid' }: OptimizedVideoCardProps) {
-  const { id } = parseGoogleDriveUrl(project.driveId);
-  const primaryThumb = `https://lh3.googleusercontent.com/d/${id}=s1000`;
-  const secondaryThumb = `https://drive.google.com/thumbnail?id=${id}&sz=w1000`;
-  const tertiaryThumb = `https://lh3.googleusercontent.com/d/${id}=s800`;
+  const isDriveVideo = !!project.driveId;
+  const parsedDrive = isDriveVideo ? parseGoogleDriveUrl(project.driveId) : { id: '' };
+  
+  const primaryThumb = project.thumbnailUrl || (isDriveVideo ? `https://lh3.googleusercontent.com/d/${parsedDrive.id}=s1000` : '');
+  const secondaryThumb = isDriveVideo ? `https://drive.google.com/thumbnail?id=${parsedDrive.id}&sz=w1000` : primaryThumb;
+  const tertiaryThumb = isDriveVideo ? `https://lh3.googleusercontent.com/d/${parsedDrive.id}=s800` : primaryThumb;
 
   const [imgSrc, setImgSrc] = useState(primaryThumb);
   const [retryCount, setRetryCount] = useState(0);
 
   const handleImgError = () => {
+    if (project.thumbnailUrl?.includes('youtube') && imgSrc.includes('maxresdefault')) {
+      setImgSrc(project.thumbnailUrl.replace('maxresdefault', 'hqdefault'));
+      return;
+    }
+    
+    if (!isDriveVideo) return; // Don't retry if it's a custom thumbnail (and not youtube)
     if (retryCount === 0) {
       setImgSrc(secondaryThumb);
       setRetryCount(1);

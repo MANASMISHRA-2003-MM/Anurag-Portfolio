@@ -20,9 +20,21 @@ export default function Work() {
   }, [selectedCategory]);
 
   const handleProjectSelect = (project: Project) => {
-    const { id } = parseGoogleDriveUrl(project.driveId);
-    const driveUrl = `https://drive.google.com/file/d/${id}/view?usp=sharing`;
-    window.open(driveUrl, '_blank', 'noopener,noreferrer');
+    if (project.externalUrl) {
+      let originalUrl = project.externalUrl;
+      if (originalUrl.includes('youtube.com/embed/')) {
+        originalUrl = originalUrl.replace('embed/', 'watch?v=').replace('?autoplay=1', '');
+      } else {
+        originalUrl = originalUrl.replace('/embed', '');
+      }
+      window.open(originalUrl, '_blank', 'noopener,noreferrer');
+      return;
+    }
+    if (project.driveId) {
+      const { id } = parseGoogleDriveUrl(project.driveId);
+      const driveUrl = `https://drive.google.com/file/d/${id}/view?usp=sharing`;
+      window.open(driveUrl, '_blank', 'noopener,noreferrer');
+    }
   };
 
   return (

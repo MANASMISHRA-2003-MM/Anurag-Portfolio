@@ -4,7 +4,9 @@ export type Project = {
   category: string;
   subCategory?: string;
   description?: string;
-  driveId: string;
+  driveId?: string;
+  externalUrl?: string; // e.g., Instagram Reel embed URL
+  thumbnailUrl?: string; // Direct image URL for thumbnail
   aspectRatio: 'vertical' | 'horizontal';
   featured?: boolean;
 };
@@ -79,10 +81,30 @@ export const allProjects: Project[] = [
   {
     id: "anim-1",
     title: "Character & Story Animation Reel",
-    category: "Motion Graphics & Animations",
+    category: "Social Media & Shorts",
     description: "2D/3D animated motion sequence with custom sound design.",
-    driveId: "1SR50Pok7K4Jqj7RWxpQ0NWxnrOnbNOaM",
+    externalUrl: "https://www.instagram.com/reel/DdDv_CwyIZz/embed",
+    thumbnailUrl: "/insta-thumbnail.png",
     aspectRatio: "vertical",
+  },
+  // --- YouTube Edits ---
+  {
+    id: "yt-short-1",
+    title: "YouTube Shorts Edit",
+    category: "Creator & YouTube Edit",
+    description: "Vertical short-form edit tailored for YouTube Shorts.",
+    externalUrl: "https://www.youtube.com/embed/xUkoNF1GSRU?autoplay=1",
+    thumbnailUrl: "https://img.youtube.com/vi/xUkoNF1GSRU/maxresdefault.jpg",
+    aspectRatio: "vertical",
+  },
+  {
+    id: "yt-video-1",
+    title: "Creator YouTube Edit",
+    category: "Creator & YouTube Edit",
+    description: "Long-form YouTube video edit with engaging pacing and visuals.",
+    externalUrl: "https://www.youtube.com/embed/HhiAPSZdHNY?autoplay=1",
+    thumbnailUrl: "https://img.youtube.com/vi/HhiAPSZdHNY/maxresdefault.jpg",
+    aspectRatio: "horizontal",
   },
   {
     id: "anim-2",
@@ -112,30 +134,7 @@ export const allProjects: Project[] = [
     driveId: "1EskgZACyhmvq2qwF1zt8KXKzE7tO7Dk0",
     aspectRatio: "horizontal",
   },
-  {
-    id: "doc-2",
-    title: "Documentary Film — Act II",
-    category: "Documentary & Films",
-    description: "Long-form documentary cut focusing on narrative pacing.",
-    driveId: "1hF8DlyIPtnmXgySJDfc-s4IUJ-5k0JM2",
-    aspectRatio: "horizontal",
-  },
-  {
-    id: "doc-3",
-    title: "Documentary Film — Act III",
-    category: "Documentary & Films",
-    description: "In-depth editorial storytelling with organic soundscapes.",
-    driveId: "1yOWIr_qc9_oh5a4tKe5dGbfZyLO3MhSb",
-    aspectRatio: "horizontal",
-  },
-  {
-    id: "doc-4",
-    title: "Documentary Story Cut",
-    category: "Documentary & Films",
-    description: "Cinematic real-world story edit with color grading and sound polish.",
-    driveId: "1CrSLovXJyFYvlOHf-Q5GX1ai0cBZmSVM",
-    aspectRatio: "horizontal",
-  },
+
 
   // --- Films ---
   {
@@ -163,23 +162,6 @@ export const allProjects: Project[] = [
     aspectRatio: "horizontal",
   },
 
-  // --- Gharology ---
-  {
-    id: "gharology-1",
-    title: "Gharology Series — Episode 1",
-    category: "Gharology & Lifestyle",
-    description: "Lifestyle and architectural aesthetic short-form edit.",
-    driveId: "1fJeFZMu46pPQzpJzsQB0BCx4TG4nijuo",
-    aspectRatio: "vertical",
-  },
-  {
-    id: "gharology-2",
-    title: "Gharology Series — Episode 2",
-    category: "Gharology & Lifestyle",
-    description: "Modern interior and living space social reel.",
-    driveId: "1BzuRPrX1jQj5TKWC6HrexdfNFQZxdpl5",
-    aspectRatio: "vertical",
-  },
 
   // --- Motion Graphics ---
   {

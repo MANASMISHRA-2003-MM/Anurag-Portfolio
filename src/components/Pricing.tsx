@@ -42,7 +42,7 @@ export default function Pricing() {
       <VideoModal
         isOpen={!!selectedProject}
         onClose={() => setSelectedProject(null)}
-        videoSource={selectedProject?.driveId}
+        videoSource={selectedProject?.externalUrl || selectedProject?.driveId}
         title={selectedProject?.title}
         category={selectedProject?.category}
         aspectRatio={selectedProject?.aspectRatio}

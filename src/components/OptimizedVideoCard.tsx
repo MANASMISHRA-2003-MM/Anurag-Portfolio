@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Play, Pause, Volume2, VolumeX, Maximize2 } from 'lucide-react';
+import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 import { parseGoogleDriveUrl, type Project } from '../assets/portfolio';
 
 interface OptimizedVideoCardProps {
@@ -80,16 +80,6 @@ export default function OptimizedVideoCard({
     }
   };
 
-  const handleOpenModal = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (videoRef.current) {
-      videoRef.current.pause();
-      if (onTogglePlay && isPlaying) onTogglePlay();
-      setInternalIsPlaying(false);
-    }
-    onSelect(project);
-  };
-
   const isVertical = project.aspectRatio === 'vertical';
 
   return (
@@ -149,17 +139,6 @@ export default function OptimizedVideoCard({
                 title={isMuted ? "Unmute" : "Mute"}
               >
                 {isMuted ? <VolumeX size={13} /> : <Volume2 size={13} />}
-              </button>
-            )}
-
-            {isMp4 && (
-              <button
-                type="button"
-                className="work-card__icon-btn"
-                onClick={handleOpenModal}
-                title="Expand to Fullscreen Modal"
-              >
-                <Maximize2 size={12} />
               </button>
             )}
 

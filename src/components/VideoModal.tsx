@@ -12,7 +12,7 @@ interface VideoModalProps {
   aspectRatio?: 'vertical' | 'horizontal';
 }
 
-export default function VideoModal({ isOpen, onClose, videoSource, title, category }: VideoModalProps) {
+export default function VideoModal({ isOpen, onClose, videoSource, title, category, aspectRatio = 'vertical' }: VideoModalProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(false);
@@ -82,7 +82,7 @@ export default function VideoModal({ isOpen, onClose, videoSource, title, catego
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.94, opacity: 0 }}
           transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-          className="video-modal-container video-modal-container--clean video-modal-container--insta-style"
+          className={`video-modal-container video-modal-container--clean ${aspectRatio === 'horizontal' ? 'video-modal-container--horizontal' : 'video-modal-container--insta-style'}`}
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header Bar */}

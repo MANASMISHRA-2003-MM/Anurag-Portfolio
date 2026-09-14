@@ -20,6 +20,10 @@ export default function Work() {
   }, [selectedCategory]);
 
   const handleProjectSelect = (project: Project) => {
+    if (project.videoUrl) {
+      window.open(project.videoUrl, '_blank', 'noopener,noreferrer');
+      return;
+    }
     if (project.externalUrl) {
       let originalUrl = project.externalUrl;
       if (originalUrl.includes('youtube.com/embed/')) {

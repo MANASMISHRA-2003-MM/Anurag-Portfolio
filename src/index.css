@@ -763,6 +763,89 @@ video::-webkit-media-controls-overlay-enclosure {
   color: #ffd700;
 }
 
+/* Center Play/Pause button for inline card video playback */
+.work-card__center-control {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(17,17,15,0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease, background 0.25s ease;
+}
+.work-card:hover .work-card__center-control {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.05);
+}
+.work-card__center-control:hover {
+  background: #fff;
+  color: #111;
+  border-color: #fff;
+  transform: translate(-50%, -50%) scale(1.12);
+}
+.work-card__veil--playing {
+  opacity: 0.35;
+}
+
+/* Video Modal MP4 Container and Custom Overlay */
+.video-modal-mp4-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  cursor: pointer;
+}
+.video-modal-mp4-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.video-modal-center-play-btn {
+  pointer-events: auto;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(17,17,15,0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease, background 0.25s ease;
+}
+.video-modal-mp4-container:hover .video-modal-center-play-btn {
+  opacity: 1;
+  transform: scale(1.06);
+}
+.video-modal-center-play-btn:hover {
+  background: #fff;
+  color: #111;
+  border-color: #fff;
+  transform: scale(1.12);
+}
+
 /* Homepage Work Grid See All Button */
 .work-grid__cta-wrap {
   margin-top: 50px;

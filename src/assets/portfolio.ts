@@ -5,6 +5,7 @@ export type Project = {
   subCategory?: string;
   description?: string;
   driveId?: string;
+  videoUrl?: string; // Direct ImageKit MP4 video URL
   externalUrl?: string; // e.g., Instagram Reel embed URL
   thumbnailUrl?: string; // Direct image URL for thumbnail
   aspectRatio: 'vertical' | 'horizontal';
@@ -44,19 +45,43 @@ export const allProjects: Project[] = [
     title: "NBA Action Reels",
     category: "Sports & NBA",
     description: "Vertical high-energy sports reel cut for mobile social engagement.",
-    driveId: "14cCR9kLXZo8MTPsLGulE4_Hpy9PELieW",
+    videoUrl: "https://ik.imagekit.io/SDGE/AnuragPortfolio/2.mp4",
+    thumbnailUrl: "https://ik.imagekit.io/SDGE/AnuragPortfolio/2.mp4/ik-thumbnail.jpg",
     aspectRatio: "vertical",
     featured: true,
   },
   {
-    id: "proj-music-comp-1",
-    title: "Commercial & Brand Film Edit",
+    id: "proj-beauty-brand-1",
+    title: "Commercial & Brand Edit",
     category: "Commercial & Brand Edit",
-    description: "Commercial brand film edit with custom music composition and audio finishing.",
-    driveId: "1Wz-UPLf_MOZGMzmDwPsBtVHoe7stwM81",
+    description: "Commercial brand film and beauty edit with custom music composition and audio finishing.",
+    videoUrl: "https://ik.imagekit.io/SDGE/AnuragPortfolio/Beauty.mp4",
+    thumbnailUrl: "https://ik.imagekit.io/SDGE/AnuragPortfolio/Beauty.mp4/ik-thumbnail.jpg",
     aspectRatio: "horizontal",
     featured: true,
   },
+  {
+    id: "proj-mrs-tipsy-3",
+    title: "Mrs Typsy Creator Reel",
+    category: "Creator & YouTube Edit",
+    description: "Engaging creator video edit featuring dynamic storytelling, cut-downs, and visual pacing.",
+    videoUrl: "https://ik.imagekit.io/SDGE/AnuragPortfolio/Miss%20Typsy%20refused%20video%203.mp4",
+    thumbnailUrl: "/insta-thumbnail.png",
+    aspectRatio: "vertical",
+    featured: true,
+  },
+  {
+    id: "proj-varun-mayya-4",
+    title: "Varun Mayya Game Engine Reel",
+    category: "Creator & YouTube Edit",
+    description: "High-tech game engine narrative reel cut for Varun Mayya's Bengaluru team.",
+    videoUrl: "https://ik.imagekit.io/SDGE/AnuragPortfolio/VARUN%20MAAYA%20game%20enginee%204th%20video%20.mp4",
+    thumbnailUrl: "https://ik.imagekit.io/SDGE/AnuragPortfolio/VARUN%20MAAYA%20game%20enginee%204th%20video%20.mp4/ik-thumbnail.jpg",
+    aspectRatio: "vertical",
+    featured: true,
+  },
+
+  // --- Sports & Sizzle ---
   {
     id: "proj-nba-sizzle-2",
     title: "NBA Sizzle Reel — Highlight Edit",
@@ -65,27 +90,6 @@ export const allProjects: Project[] = [
     description: "High-octane NBA hype edit showcasing rhythmic pacing, impact sound design, and player movements.",
     driveId: "1a3_l7NHTBQo0mMzhPxjYjwCDVHKYFJqS",
     aspectRatio: "horizontal",
-    featured: true,
-  },
-  {
-    id: "proj-creative-shorts-1",
-    title: "Informative Short Storytelling",
-    category: "Social Media & Shorts",
-    description: "Fast-paced social media short formatted for retention and clarity.",
-    driveId: "1HjhwqdkHd7zgm5IdYO2j4Cv5cu65jgse",
-    aspectRatio: "vertical",
-    featured: true,
-  },
-
-  // --- Animations ---
-  {
-    id: "anim-1",
-    title: "Character & Story Animation Reel",
-    category: "Social Media & Shorts",
-    description: "2D/3D animated motion sequence with custom sound design.",
-    externalUrl: "https://www.instagram.com/reel/DdDv_CwyIZz/embed",
-    thumbnailUrl: "/insta-thumbnail.png",
-    aspectRatio: "vertical",
   },
   // --- YouTube Edits ---
   {

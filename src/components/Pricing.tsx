@@ -7,9 +7,18 @@ import OptimizedVideoCard from './OptimizedVideoCard';
 
 export default function Pricing() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [activePlayingId, setActivePlayingId] = useState<string | null>(null);
 
   // Stick strictly to 4 featured videos on homepage work-grid
   const homepageProjects = portfolio.projects.slice(0, 4);
+
+  const handleTogglePlay = (project: Project) => {
+    if (activePlayingId === project.id) {
+      setActivePlayingId(null);
+    } else {
+      setActivePlayingId(project.id);
+    }
+  };
 
   return (
     <>
@@ -26,7 +35,12 @@ export default function Pricing() {
               key={p.id}
               project={p}
               index={i}
-              onSelect={(proj) => setSelectedProject(proj)}
+              isPlaying={activePlayingId === p.id}
+              onTogglePlay={() => handleTogglePlay(p)}
+              onSelect={(proj) => {
+                setActivePlayingId(null);
+                setSelectedProject(proj);
+              }}
             />
           ))}
         </div>
@@ -42,7 +56,7 @@ export default function Pricing() {
       <VideoModal
         isOpen={!!selectedProject}
         onClose={() => setSelectedProject(null)}
-        videoSource={selectedProject?.externalUrl || selectedProject?.driveId}
+        videoSource={selectedProject?.videoUrl || selectedProject?.externalUrl || selectedProject?.driveId}
         title={selectedProject?.title}
         category={selectedProject?.category}
         aspectRatio={selectedProject?.aspectRatio}

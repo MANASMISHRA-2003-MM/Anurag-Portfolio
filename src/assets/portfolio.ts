@@ -306,7 +306,7 @@ export const portfolio = {
   experience: [
     { company: "Lit Creative Studio", role: "Editor in Chief", period: "Aug 2025 – Present", location: "Noida" },
     { company: "Yaas Media", role: "Video Editor", period: "Sep 2024 – Aug 2025", location: "" },
-    { company: "ScaleAcres", role: "Video Editor", period: "Apr 2024 – Jul 2026", location: "Delhi" },
+    { company: "ScaleAcres", role: "Video Editor", period: "Apr 2024 – Jul 2025", location: "Delhi" },
     { company: "Home Sparkle Sourcing India", role: "Graphic Designer & Video Editor", period: "Apr 2023 – May 2023", location: "" },
     { company: "Sports Media Solution", role: "Video Editor", period: "2022 – 2023", location: "" },
   ],
